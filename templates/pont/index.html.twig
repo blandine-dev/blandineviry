@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pont index{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center my-5">Liste des ponts célèbres</h1>
+    <h4 class="text-center">Bienvenue sur le site des plus beaux ponts du monde!</h4>
+    <a href="{{ path('pont_new') }}" class="btn btn-success mb-5">Nouveau pont</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Nom</th>
+                {# <th>Photo</th> #}
+                {# <th>Longueur</th> #}
+                {# <th>Lieu</th> #}
+                {# <th>Architecte</th> #}
+                {# <th>Presentation</th> #}
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pont in ponts %}
+            <tr>
+                {# <td>{{ pont.id }}</td> #}
+                <td>{{ pont.nom }}</td>
+                {# <td>{{ pont.photo }}</td> #}
+                {# <td>{{ pont.longueur }}</td> #}
+                {# <td>{{ pont.lieu }}</td> #}
+                {# <td>{{ pont.architecte }}</td> #}
+                {# <td>{{ pont.presentation }}</td> #}
+                <td>
+                    <a href="{{ path('pont_show', {'id': pont.id}) }}" class="btn btn-primary">Voir</a>
+                    <a href="{{ path('pont_edit', {'id': pont.id}) }}" class="btn btn-success ml-3">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+</div>
+{% endblock %}

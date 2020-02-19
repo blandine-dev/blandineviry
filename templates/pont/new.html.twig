@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Pont{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-align-center mt-5">Enregistrez un nouveau pont</h1>
+
+    {{ include('pont/_form.html.twig') }}
+
+    <a href="{{ path('pont_index') }}" class="btn btn-success mt-3">Retour</a>
+</div>
+{% endblock %}
